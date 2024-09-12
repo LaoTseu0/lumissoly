@@ -1,4 +1,5 @@
 "use client";
+import { Button } from "@components/ui/button";
 import React, { useState, useEffect } from "react";
 
 const NFCReader: React.FC = () => {
@@ -49,9 +50,9 @@ const NFCReader: React.FC = () => {
 
   return (
     <div>
-      <button onClick={startNFCRead} disabled={isReading}>
+      <Button onClick={startNFCRead} disabled={isReading}>
         {isReading ? "Lecture en cours..." : "Démarrer la lecture NFC"}
-      </button>
+      </Button>
       {error && <p style={{ color: "red" }}>{error}</p>}
       {message && <p>{message}</p>}
     </div>
