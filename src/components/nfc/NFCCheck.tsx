@@ -1,4 +1,5 @@
 "use client";
+import { nfcHelper } from "@app/actions/nfc.action";
 import React, { useEffect, useState } from "react";
 
 const checkNFCPermission = async (): Promise<boolean> => {
@@ -41,6 +42,9 @@ const NFCCheck: React.FC = () => {
   //   checkNFCSupport();
   // }, []);
 
+  const handleLog = async (log: string) => {
+    await nfcHelper(log);
+  };
   // Utilisation dans le composant NFCCheck
   useEffect(() => {
     const checkNFCSupport = async () => {
@@ -57,9 +61,11 @@ const NFCCheck: React.FC = () => {
           }
         } else {
           setIsNFCSupported(false);
+          handleLog("No NFC permission");
         }
       } else {
         setIsNFCSupported(false);
+        handleLog("No NFC support");
       }
     };
 

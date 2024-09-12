@@ -18,7 +18,7 @@ async function _logout() {
   if (typeof window !== "undefined") {
     throw new Error("This action can only be called from the server side");
   }
-  const { VERCEL_URL } = process.env;
+  const { NEXT_PUBLIC_BASE_URL } = process.env;
   const cookieKey = COOKIES_KEYS.sessionToken;
   const cookiesTools = cookies();
 
@@ -30,7 +30,7 @@ async function _logout() {
     const refresh_token: RequestCookie = cookiesTools.get(cookieKey)!;
 
     const response = await fetch(
-      "https://" + VERCEL_URL + RELATIV_NEXT_API_URL.LOGOUT,
+      NEXT_PUBLIC_BASE_URL + RELATIV_NEXT_API_URL.LOGOUT,
       {
         method: "GET",
         headers: {
