@@ -12,8 +12,8 @@ import type { NextRequest } from "next/server";
  * to navigate on the protected routes
  */
 export async function middleware(request: NextRequest) {
-  const { NEXT_PUBLIC_BASE_URL } = process.env;
-  const redirectURL = `${NEXT_PUBLIC_BASE_URL}${pathTo_Menu()}`;
+  const { VERCEL_URL } = process.env;
+  const redirectURL = `${VERCEL_URL}${pathTo_Menu()}`;
   const sessionToken: any = cookies().get(COOKIES_KEYS.sessionToken);
   if (!sessionToken) return NextResponse.redirect(redirectURL);
 
