@@ -2,6 +2,9 @@ import { COOKIES_KEYS, OAUTH_GRANT_TYPES } from "@global/constants";
 import { NextRequest, NextResponse } from "next/server";
 import logger from "@lib/logger/logger";
 
+// explicit dynamic declaration
+export const dynamic = "force-dynamic";
+
 export async function POST(req: NextRequest) {
   if (req.method !== "POST") {
     return new NextResponse("Method Not Allowed", { status: 405 });

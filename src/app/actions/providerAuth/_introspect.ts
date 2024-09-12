@@ -41,10 +41,6 @@ async function _introspect() {
         method: "GET",
         headers: {
           "Content-Type": "application/json",
-          // Desactiation du cache
-          "Cache-Control": "no-cache, no-store, must-revalidate",
-          Pragma: "no-cache",
-          Expires: "0",
           Cookie: `sessionToken=${refresh_token?.value}`,
         },
         // Désactiver explicitement le cache de Next.js

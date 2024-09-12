@@ -6,6 +6,9 @@ import { cookies } from "next/headers";
 import { NextRequest, NextResponse } from "next/server";
 import { createHash } from "crypto";
 
+// explicit dynamic declaration
+export const dynamic = "force-dynamic";
+
 /**
  * @Dev This handle work with keycloack client_credentials flow
  * So it use email & password to create a user.

@@ -5,6 +5,8 @@ import { NextRequest, NextResponse } from "next/server";
 
 // Secret key to secure the internal API
 const API_SECRET = process.env.INTERNAL_API_SECRET;
+// explicit dynamic declaration
+export const dynamic = "force-dynamic";
 
 export async function GET(req: NextRequest) {
   if (req.method !== "GET") {

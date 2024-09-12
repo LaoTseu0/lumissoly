@@ -19,7 +19,7 @@ interface SignupStore {
   setSecondGuardian: (answer: string) => void;
 }
 
-export const useSignupStore = create<SignupStore>((set) => ({
+export const useSignupStore = create<SignupStore>((set: any) => ({
   nom: "",
   prenom: "",
   date: "",

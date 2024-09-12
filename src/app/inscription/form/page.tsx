@@ -33,11 +33,7 @@ const InscriptionForm: FunctionComponent<InscriptionFormProps> = () => {
     event.preventDefault();
     // TODO: Gestion du cas d'erreur sur l'inscription
     const withLogin = true;
-    await serviceOAuth.registration(
-      userData.email,
-      userData.password,
-      withLogin
-    );
+    await serviceOAuth.registration(userData.email, userData.password);
     const res = await serviceOAuth.connectUser(
       userData.email,
       userData.password

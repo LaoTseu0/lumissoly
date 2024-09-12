@@ -2,6 +2,9 @@ import { NextApiResponse } from "next";
 import { NextResponse } from "next/server";
 import logger from "@lib/logger/logger";
 
+// explicit dynamic declaration
+export const dynamic = "force-dynamic";
+
 export async function POST(req: Request, res: NextApiResponse) {
   if (req.method !== "POST") {
     res.setHeader("Allow", "POST");

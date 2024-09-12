@@ -9,8 +9,8 @@ import { cookies } from "next/headers";
 // JS DOC:
 /**
  * @Dev Function to _logout the token
- * @param token OAuth access_token
- * @returns ok if everything is ok, else throw an error
+ * @cookie is a refresh_token
+ * @returns FormatedResponse with ok status forwarded
  */
 
 async function _logout() {
@@ -35,10 +35,6 @@ async function _logout() {
         method: "GET",
         headers: {
           "Content-Type": "application/json",
-          // Desactiation du cache
-          "Cache-Control": "no-cache, no-store, must-revalidate",
-          Pragma: "no-cache",
-          Expires: "0",
           Cookie: `sessionToken=${refresh_token?.value}`,
         },
         // Désactiver explicitement le cache de Next.js

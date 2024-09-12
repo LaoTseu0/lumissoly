@@ -10,9 +10,7 @@ interface BijouManagerProps {}
 const BijouManager: FunctionComponent<BijouManagerProps> = () => {
   // const souvenirs = new Array(10).fill("Nom du souvenir");
   const souvenirs: any[] = [];
-  const handleClick = () => {
-    logger.info("click");
-  };
+  const handleClick = () => {};
   return (
     <div className="mt-8">
       <div>

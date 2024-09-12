@@ -7,6 +7,9 @@ import { NextRequest, NextResponse } from "next/server";
 import logger from "@lib/logger/logger";
 import { oauth } from "@app/actions/providerAuth";
 
+// explicit dynamic declaration
+export const dynamic = "force-dynamic";
+
 export async function GET(req: NextRequest) {
   if (req.method !== "GET") {
     return new NextResponse("Method Not Allowed", { status: 405 });

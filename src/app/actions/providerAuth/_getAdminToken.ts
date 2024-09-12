@@ -20,6 +20,7 @@ async function _getAdminToken(apiSecret: string): Promise<any> {
       headers: {
         "x-api-Secret": apiSecret!,
       },
+      cache: "no-store",
     });
     logger.info("[authProvider._getAdminToken] Token received");
     return await response.json();

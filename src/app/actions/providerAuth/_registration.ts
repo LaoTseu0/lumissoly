@@ -22,10 +22,6 @@ async function _registration(email: string, password: string): Promise<any> {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
-        // Desactivation du cache
-        "Cache-Control": "no-cache, no-store, must-revalidate",
-        Pragma: "no-cache",
-        Expires: "0",
       },
       // Désactiver explicitement le cache de Next.js
       cache: "no-store",

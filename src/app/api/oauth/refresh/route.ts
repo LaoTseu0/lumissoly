@@ -2,6 +2,9 @@ import { COOKIES_KEYS, OAUTH_GRANT_TYPES } from "@global/constants";
 import { NextRequest, NextResponse } from "next/server";
 import logger from "@lib/logger/logger";
 
+// explicit dynamic declaration
+export const dynamic = "force-dynamic";
+
 /**
  * @Dev This handle work with keycloack Refresh Token flow
  * So we need only the refresh token here.

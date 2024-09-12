@@ -15,27 +15,27 @@ import { Input } from "@components/ui/input";
 interface SecretProps {}
 
 const Secret: FunctionComponent<SecretProps> = () => {
-  const {
-    firstQuestion,
-    secondQuestion,
-    thirdQuestion,
-    firstAnswer,
-    secondAnswer,
-    thirdAnswer,
-    setFirstQuestion,
-    setFirstAnswer,
-    setSecondQuestion,
-    setSecondAnswer,
-    setThirdQuestion,
-    setThirdAnswer,
-  } = useSignupStore();
+  // const {
+  //   firstQuestion,
+  //   secondQuestion,
+  //   thirdQuestion,
+  //   firstAnswer,
+  //   secondAnswer,
+  //   thirdAnswer,
+  //   setFirstQuestion,
+  //   setFirstAnswer,
+  //   setSecondQuestion,
+  //   setSecondAnswer,
+  //   setThirdQuestion,
+  //   setThirdAnswer,
+  // } = useSignupStore();
 
   return (
     <fieldset className="flex flex-col gap-8 mb-6">
       <div>
         <Select
-          value={firstQuestion}
-          onValueChange={(value) => setFirstQuestion(value)}
+          value={"firstQuestion"}
+          // onValueChange={(value) => setFirstQuestion(value)}
         >
           <SelectTrigger>
             <SelectValue placeholder={QUESTIONS[0]} />
@@ -54,14 +54,14 @@ const Secret: FunctionComponent<SecretProps> = () => {
         <Input
           type="text"
           name="firstAnwser"
-          value={firstAnswer}
-          onChange={(e) => setFirstAnswer(e.target.value)}
+          value={"firstAnswer"}
+          // onChange={(e) => setFirstAnswer(e.target.value)}
         />
       </div>
       <div>
         <Select
-          value={secondQuestion}
-          onValueChange={(value) => setSecondQuestion(value)}
+          value={"secondQuestion"}
+          // onValueChange={(value) => setSecondQuestion(value)}
         >
           <SelectTrigger>
             <SelectValue placeholder={QUESTIONS[0]} />
@@ -80,15 +80,15 @@ const Secret: FunctionComponent<SecretProps> = () => {
         <Input
           type="text"
           name="secondAnswer"
-          value={secondAnswer}
-          onChange={(e) => setSecondAnswer(e.target.value)}
+          value={"secondAnswer"}
+          // onChange={(e) => setSecondAnswer(e.target.value)}
         />
       </div>
 
       <div>
         <Select
-          value={thirdQuestion}
-          onValueChange={(value) => setThirdQuestion(value)}
+          value={"thirdQuestion"}
+          // onValueChange={(value) => setThirdQuestion(value)}
         >
           <SelectTrigger>
             <SelectValue placeholder={QUESTIONS[0]} />
@@ -107,8 +107,8 @@ const Secret: FunctionComponent<SecretProps> = () => {
         <Input
           type="text"
           name="thirdAnswer"
-          value={thirdAnswer}
-          onChange={(e) => setThirdAnswer(e.target.value)}
+          value={"thirdAnswer"}
+          // onChange={(e) => setThirdAnswer(e.target.value)}
         />
       </div>
     </fieldset>
