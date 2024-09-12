@@ -18,7 +18,7 @@ async function _registration(email: string, password: string): Promise<any> {
   const API_USER_REGISTER: string = RELATIV_NEXT_API_URL.REGISTRATION;
 
   try {
-    const response = await fetch(VERCEL_URL + API_USER_REGISTER, {
+    const response = await fetch("https://" + VERCEL_URL + API_USER_REGISTER, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

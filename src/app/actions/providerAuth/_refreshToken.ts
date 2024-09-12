@@ -33,7 +33,7 @@ async function _refreshToken(_refresh_token?: RequestCookie) {
 
   try {
     const response = await fetch(
-      VERCEL_URL + RELATIV_NEXT_API_URL.REFRESH_TOKEN,
+      "https://" + VERCEL_URL + RELATIV_NEXT_API_URL.REFRESH_TOKEN,
       {
         method: "GET",
         headers: {

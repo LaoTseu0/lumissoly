@@ -22,7 +22,7 @@ async function _authentication(
   const API_AUTHENTICATE: string = RELATIV_NEXT_API_URL.AUTHENTICATE;
 
   try {
-    const response = await fetch(VERCEL_URL + API_AUTHENTICATE, {
+    const response = await fetch("https://" + VERCEL_URL + API_AUTHENTICATE, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

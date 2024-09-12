@@ -29,15 +29,18 @@ async function _logout() {
   try {
     const refresh_token: RequestCookie = cookiesTools.get(cookieKey)!;
 
-    const response = await fetch(VERCEL_URL + RELATIV_NEXT_API_URL.LOGOUT, {
-      method: "GET",
-      headers: {
-        "Content-Type": "application/json",
-        Cookie: `sessionToken=${refresh_token?.value}`,
-      },
-      // Désactiver explicitement le cache de Next.js
-      cache: "no-store",
-    });
+    const response = await fetch(
+      "https://" + VERCEL_URL + RELATIV_NEXT_API_URL.LOGOUT,
+      {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json",
+          Cookie: `sessionToken=${refresh_token?.value}`,
+        },
+        // Désactiver explicitement le cache de Next.js
+        cache: "no-store",
+      }
+    );
 
     if (!response.ok) {
       throw new Error(

@@ -15,7 +15,7 @@ async function _getAdminToken(apiSecret: string): Promise<any> {
     `[authProvider._getAdminToken] Attempting to get an admin token for client-admin`
   );
   try {
-    const response = await fetch(VERCEL_URL + API_ADMIN_TOKEN, {
+    const response = await fetch("https://" + VERCEL_URL + API_ADMIN_TOKEN, {
       method: "GET",
       headers: {
         "x-api-Secret": apiSecret!,

@@ -35,15 +35,18 @@ async function _introspect() {
       );
     }
 
-    const response = await fetch(VERCEL_URL + RELATIV_NEXT_API_URL.INTROSPECT, {
-      method: "GET",
-      headers: {
-        "Content-Type": "application/json",
-        Cookie: `sessionToken=${refresh_token?.value}`,
-      },
-      // Désactiver explicitement le cache de Next.js
-      cache: "no-store",
-    });
+    const response = await fetch(
+      "https://" + VERCEL_URL + RELATIV_NEXT_API_URL.INTROSPECT,
+      {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json",
+          Cookie: `sessionToken=${refresh_token?.value}`,
+        },
+        // Désactiver explicitement le cache de Next.js
+        cache: "no-store",
+      }
+    );
     if (!response.ok) {
       throw new Error(
         "[introspect] Trouble to get the token data: " + response.statusText
