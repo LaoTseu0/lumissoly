@@ -19,7 +19,7 @@ async function _introspect() {
   if (typeof window !== "undefined") {
     throw new Error("This action can only be called from the server side");
   }
-  const { NEXT_PUBLIC_BASE_URL } = process.env;
+  const { VERCEL_URL } = process.env;
   const cookieKey = COOKIES_KEYS.sessionToken;
   const cookiesTools = cookies();
 
@@ -35,18 +35,15 @@ async function _introspect() {
       );
     }
 
-    const response = await fetch(
-      NEXT_PUBLIC_BASE_URL + RELATIV_NEXT_API_URL.INTROSPECT,
-      {
-        method: "GET",
-        headers: {
-          "Content-Type": "application/json",
-          Cookie: `sessionToken=${refresh_token?.value}`,
-        },
-        // Désactiver explicitement le cache de Next.js
-        cache: "no-store",
-      }
-    );
+    const response = await fetch(VERCEL_URL + RELATIV_NEXT_API_URL.INTROSPECT, {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+        Cookie: `sessionToken=${refresh_token?.value}`,
+      },
+      // Désactiver explicitement le cache de Next.js
+      cache: "no-store",
+    });
     if (!response.ok) {
       throw new Error(
         "[introspect] Trouble to get the token data: " + response.statusText

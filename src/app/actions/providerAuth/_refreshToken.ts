@@ -18,7 +18,7 @@ async function _refreshToken(_refresh_token?: RequestCookie) {
   if (typeof window !== "undefined") {
     throw new Error("This action can only be called from the server side");
   }
-  const { NEXT_PUBLIC_BASE_URL } = process.env;
+  const { VERCEL_URL } = process.env;
   const cookieKey = COOKIES_KEYS.sessionToken;
   const cookiesTools = cookies();
   let refresh_token;
@@ -33,7 +33,7 @@ async function _refreshToken(_refresh_token?: RequestCookie) {
 
   try {
     const response = await fetch(
-      NEXT_PUBLIC_BASE_URL + RELATIV_NEXT_API_URL.REFRESH_TOKEN,
+      VERCEL_URL + RELATIV_NEXT_API_URL.REFRESH_TOKEN,
       {
         method: "GET",
         headers: {

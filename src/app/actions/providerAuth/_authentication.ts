@@ -18,11 +18,11 @@ async function _authentication(
   if (typeof window !== "undefined") {
     throw new Error("This action can only be called from the server side");
   }
-  const { NEXT_PUBLIC_BASE_URL } = process.env;
+  const { VERCEL_URL } = process.env;
   const API_AUTHENTICATE: string = RELATIV_NEXT_API_URL.AUTHENTICATE;
 
   try {
-    const response = await fetch(NEXT_PUBLIC_BASE_URL + API_AUTHENTICATE, {
+    const response = await fetch(VERCEL_URL + API_AUTHENTICATE, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
