@@ -1,8 +1,8 @@
-"use client";
 import React, { useState, useEffect } from "react";
 
 const NFCReader: React.FC = () => {
   const [message, setMessage] = useState<string>("");
+  const [error, setError] = useState<string | null>(null);
   const [isReading, setIsReading] = useState<boolean>(false);
 
   const startNFCRead = async () => {
@@ -10,35 +10,38 @@ const NFCReader: React.FC = () => {
       try {
         const ndef = new (window as any).NDEFReader();
         setIsReading(true);
+        setError(null);
+
         await ndef.scan();
+        setMessage("Approchez un tag NFC de votre appareil...");
 
         ndef.addEventListener("reading", ({ message, serialNumber }: any) => {
           for (const record of message.records) {
             switch (record.recordType) {
               case "text":
                 const textDecoder = new TextDecoder(record.encoding);
-                setMessage(textDecoder.decode(record.data));
+                setMessage(`Texte lu: ${textDecoder.decode(record.data)}`);
                 break;
               case "url":
-                setMessage(`URL: ${record.data}`);
+                setMessage(`URL lue: ${record.data}`);
                 break;
               default:
-                setMessage(`Données de type inconnu reçues.`);
+                setMessage(`Données de type ${record.recordType} reçues.`);
             }
           }
         });
       } catch (error) {
         console.error(error);
-        setMessage(`Erreur: ${(error as Error).message}`);
+        setError(`Erreur: ${(error as Error).message}`);
+        setIsReading(false);
       }
     } else {
-      setMessage("NFC non supporté sur cet appareil.");
+      setError("NFC non supporté sur cet appareil.");
     }
   };
 
   useEffect(() => {
     return () => {
-      // Nettoyage si nécessaire
       setIsReading(false);
     };
   }, []);
@@ -48,7 +51,8 @@ const NFCReader: React.FC = () => {
       <button onClick={startNFCRead} disabled={isReading}>
         {isReading ? "Lecture en cours..." : "Démarrer la lecture NFC"}
       </button>
-      <p>{message}</p>
+      {error && <p style={{ color: "red" }}>{error}</p>}
+      {message && <p>{message}</p>}
     </div>
   );
 };
