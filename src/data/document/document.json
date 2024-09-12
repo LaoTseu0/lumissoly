@@ -1,0 +1,39 @@
+{
+  "user": {
+    "name": "John Doe",
+    "email": "john.doe@hotmail.fr",
+    "bijou": [
+      {
+        "serial_number": "123456",
+        "used_storage": 4.8,
+        "total_storage": 10,
+        "memory_count": 2,
+        "memory_total": 10,
+        "name": "Mon Bijou",
+        "memories": [
+          {
+            "id": 1,
+            "CID": "QmX1",
+            "occupied_storage": 2,
+            "title": "Memory 1",
+            "description": "Content 1"
+          },
+          {
+            "id": 2,
+            "CID": "QmX2",
+            "occupied_storage": 2.8,
+            "title": "Memory 2",
+            "description": "Content 2"
+          }
+        ]
+      },
+      {
+        "serial_number": "654321",
+        "memory_count": 0,
+        "memory_total": 10,
+        "name": "Mon Bijou 2",
+        "memories": []
+      }
+    ]
+  }
+}
