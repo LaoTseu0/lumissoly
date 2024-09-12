@@ -13,7 +13,7 @@ import type { NextRequest } from "next/server";
  */
 export async function middleware(request: NextRequest) {
   const { VERCEL_URL } = process.env;
-  const redirectURL = `${VERCEL_URL}${pathTo_Menu()}`;
+  const redirectURL = `https://${VERCEL_URL}${pathTo_Menu()}`;
   const sessionToken: any = cookies().get(COOKIES_KEYS.sessionToken);
   if (!sessionToken) return NextResponse.redirect(redirectURL);
 
